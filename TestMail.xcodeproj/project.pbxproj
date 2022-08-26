@@ -19,6 +19,8 @@
 		548B145928B7C4FC00375631 /* MailCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548B145828B7C4FC00375631 /* MailCollectionView.swift */; };
 		548B145B28B7C5F000375631 /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548B145A28B7C5F000375631 /* NSObject.swift */; };
 		548B145F28B7C6A300375631 /* MailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548B145E28B7C6A300375631 /* MailCollectionViewCell.swift */; };
+		548B146328B8C05000375631 /* VerificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548B146228B8C05000375631 /* VerificationModel.swift */; };
+		54B8A9E028B8C7EF000907C7 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B8A9DF28B8C7EF000907C7 /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		548B145828B7C4FC00375631 /* MailCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailCollectionView.swift; sourceTree = "<group>"; };
 		548B145A28B7C5F000375631 /* NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
 		548B145E28B7C6A300375631 /* MailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailCollectionViewCell.swift; sourceTree = "<group>"; };
+		548B146228B8C05000375631 /* VerificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationModel.swift; sourceTree = "<group>"; };
+		54B8A9DF28B8C7EF000907C7 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,7 @@
 		548B144A28B7B98C00375631 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				548B146228B8C05000375631 /* VerificationModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				548B145A28B7C5F000375631 /* NSObject.swift */,
+				54B8A9DF28B8C7EF000907C7 /* String.swift */,
 			);
 			path = NS;
 			sourceTree = "<group>";
@@ -235,11 +241,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				548B146328B8C05000375631 /* VerificationModel.swift in Sources */,
 				548B144F28B7BE2500375631 /* StatusLabel.swift in Sources */,
 				548B145728B7C3D700375631 /* VerificationButton.swift in Sources */,
 				548B143A28B7B84100375631 /* VerificationViewController.swift in Sources */,
 				548B145B28B7C5F000375631 /* NSObject.swift in Sources */,
 				548B145528B7C26C00375631 /* MailTextField.swift in Sources */,
+				54B8A9E028B8C7EF000907C7 /* String.swift in Sources */,
 				548B143628B7B84100375631 /* AppDelegate.swift in Sources */,
 				548B145928B7C4FC00375631 /* MailCollectionView.swift in Sources */,
 				548B145F28B7C6A300375631 /* MailCollectionViewCell.swift in Sources */,

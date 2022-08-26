@@ -29,6 +29,8 @@ class VerificationViewController: UIViewController {
                                         axis: .vertical,
                                         spacing: 20)
     
+    private let verificationModel = VerificationModel()
+    
     //MARK: -  View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,12 +74,13 @@ extension VerificationViewController: UICollectionViewDataSource {
             
         }
         
-        
+        let mailLabelText = verificationModel.filteredMailArray[indexPath.row]
+        cell.cellConfigure(mailLabelText: mailLabelText)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        6
+        verificationModel.filteredMailArray.count
     }
     
 }
@@ -86,7 +89,15 @@ extension VerificationViewController: UICollectionViewDataSource {
 extension VerificationViewController: SelectProposedMailProtocol {
     
     func selectProposedMail(indexPath: IndexPath) {
-        print(indexPath)
+        guard let text = mailTextFied.text else { return }
+        verificationModel.getNameMail(text: text)
+        let domainName = verificationModel.filteredMailArray[indexPath.row]
+        let mailFullName = verificationModel.nameMail + domainName
+        mailTextFied.text = mailFullName
+        statusLabel.isValid = mailFullName.isValid()
+        verificationButton.isValid = mailFullName.isValid()
+        verificationModel.filteredMailArray = []
+        collectionView.reloadData()
     }
     
 }
@@ -95,11 +106,18 @@ extension VerificationViewController: SelectProposedMailProtocol {
 extension VerificationViewController: ActionsMailTextFieldProtocol {
     
     func typingText(text: String) {
+        statusLabel.isValid = text.isValid()
+        verificationButton.isValid = text.isValid()
+        verificationModel.getFilteredArray(text: text)
+        collectionView.reloadData()
         print(text)
     }
     
     func cleanOutTextField() {
-        print(#function)
+        statusLabel.setDefaultSetting()
+        verificationButton.setDefaultSetting()
+        verificationModel.filteredMailArray = []
+        collectionView.reloadData()
     }
     
 }

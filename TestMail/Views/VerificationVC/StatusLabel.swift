@@ -10,6 +10,16 @@ import UIKit
 
 class StatusLabel: UILabel {
     
+    public var isValid = false {
+        didSet {
+            if self.isValid {
+                setValidSetting()
+            } else {
+                setNotValidSetting()
+            }
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -27,6 +37,20 @@ class StatusLabel: UILabel {
         font = UIFont(name: "Apple SD Gothic Neo", size: 16)
         adjustsFontSizeToFitWidth = true
         translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    private func setNotValidSetting() {
+        text = "Mail is not valid. Ex: name@domain.ru"
+        textColor = .systemRed
+    }
+    
+    private func setValidSetting() {
+        text = "Mail is valid"
+        textColor = .systemGreen
+    }
+    
+    public func setDefaultSetting() {
+        configure()
     }
     
 }
