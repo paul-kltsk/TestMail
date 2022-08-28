@@ -54,6 +54,7 @@ class VerificationButton: UIButton {
     }
     
     public func setDefaultSetting() {
+        print(#function)
         configure()
     }
     

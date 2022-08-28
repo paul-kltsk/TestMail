@@ -57,7 +57,26 @@ class VerificationViewController: UIViewController {
     }
     
     @objc private func verificationButtonTapped() {
-        print("Button tapped")
+        guard let mail = mailTextFied.text else { return }
+        NetworkDataFetch.shared.fetchMail(verifableMail: mail) { result, error in
+            if error == nil {
+                guard let result = result else { return }
+                if result.success == true {
+                    guard let didYouMeanError =  result.didYouMean else {
+                        Alert.showResultAlert(vc: self,
+                                               message: "Mail status \(result.result) \n \(result.reasonDescription)")
+                        return
+                    }
+                    Alert.showErrorAlert(vc: self, message: "Did you mean \(didYouMeanError)") { [weak self] in
+                        guard let self = self else { return }
+                        self.mailTextFied.text = didYouMeanError
+                    }
+                } else {
+                    guard let errorDescription = error?.localizedDescription else { return }
+                    Alert.showResultAlert(vc: self, message: errorDescription)
+                }
+            }
+        }
     }
 
 }

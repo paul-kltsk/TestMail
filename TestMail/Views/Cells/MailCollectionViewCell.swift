@@ -32,7 +32,7 @@ class MailCollectionViewCell: UICollectionViewCell {
     
     private func setupViews() {
         contentView.backgroundColor = .white
-        contentView.alpha = 0.5
+        contentView.alpha = 0.8
         contentView.layer.cornerRadius = 10
         
         addSubview(domainLabel)
